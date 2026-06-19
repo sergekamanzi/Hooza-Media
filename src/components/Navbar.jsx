@@ -38,21 +38,25 @@ export default function Navbar() {
 	}, [])
 
 	return (
-		<header className="sticky top-0 z-50 border-b border-[#eadfe4] bg-[#fbf4f7]/95 backdrop-blur-sm">
+		<header className="sticky top-0 z-50 border-b border-(--hooza-border) bg-[rgba(251,246,252,0.94)] backdrop-blur-sm">
 			<div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-10">
-				<a href="#home" className="text-2xl font-semibold tracking-[0.18em] text-[#8f0e58]">
-					HOOZA
+				<a href="#home" className="flex shrink-0 items-center" aria-label="Hooza Media home">
+					<img
+						src="/logo.png"
+						alt="Hooza Media logo"
+						className="block w-32 object-contain sm:w-40 md:w-44 lg:w-52 xl:w-56"
+					/>
 				</a>
 
-				<nav className="hidden items-center gap-5 text-[15px] text-[#6f5d66] xl:flex">
+				<nav className="hidden items-center gap-5 text-[15px] text-(--hooza-text-soft) xl:flex">
 					{navItems.map((item) => (
 						<a
 							key={item.label}
 							href={item.href}
 							className={
 								activeHref === item.href
-									? 'whitespace-nowrap border-b-2 border-[#b11b63] pb-1 font-medium text-[#b11b63]'
-									: 'whitespace-nowrap transition-colors hover:text-[#8f0e58]'
+									? 'whitespace-nowrap border-b-2 border-(--hooza-primary) pb-1 font-medium text-(--hooza-primary)'
+									: 'whitespace-nowrap transition-colors hover:text-(--hooza-primary)'
 							}
 						>
 							{item.label}
@@ -61,12 +65,12 @@ export default function Navbar() {
 				</nav>
 
 				<div className="hidden items-center gap-6 xl:flex">
-					<a href="#fr" className="text-sm font-semibold tracking-[0.08em] text-[#8f0e58]">
+					<a href="#fr" className="text-sm font-semibold tracking-[0.08em] text-(--hooza-primary)">
 						FR
 					</a>
 					<a
 						href="#contact"
-						className="rounded-md bg-[#8f0e58] px-6 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-[#a81a69]"
+						className="rounded-md bg-(--hooza-primary) px-6 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-(--hooza-primary-dark)"
 					>
 						Contact
 					</a>
@@ -75,7 +79,7 @@ export default function Navbar() {
 				<button
 					type="button"
 					onClick={() => setIsMenuOpen((current) => !current)}
-					className="inline-flex items-center justify-center rounded-md p-2 text-[#8f0e58] transition-colors hover:bg-[#f3e3ea] xl:hidden"
+					className="inline-flex items-center justify-center rounded-md p-2 text-(--hooza-primary) transition-colors hover:bg-(--hooza-primary-soft) xl:hidden"
 					aria-label="Toggle navigation menu"
 					aria-expanded={isMenuOpen}
 					aria-controls="mobile-menu"
@@ -86,7 +90,7 @@ export default function Navbar() {
 
 			<div
 				id="mobile-menu"
-				className={`${isMenuOpen ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0'} overflow-hidden border-t border-[#eadfe4] bg-[#fbf4f7] transition-all duration-300 ease-out xl:hidden`}
+				className={`${isMenuOpen ? 'max-h-128 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden border-t border-(--hooza-border) bg-(--hooza-surface) transition-all duration-300 ease-out xl:hidden`}
 			>
 				<div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-4 sm:px-6">
 					{navItems.map((item) => (
@@ -96,8 +100,8 @@ export default function Navbar() {
 							onClick={() => setIsMenuOpen(false)}
 							className={
 								activeHref === item.href
-									? 'rounded-md px-3 py-2 text-[15px] font-medium text-[#b11b63] transition-colors hover:bg-[#f3e3ea]'
-									: 'rounded-md px-3 py-2 text-[15px] font-medium text-[#5f4d57] transition-colors hover:bg-[#f3e3ea] hover:text-[#8f0e58]'
+									? 'rounded-md px-3 py-2 text-[15px] font-medium text-(--hooza-primary) transition-colors hover:bg-(--hooza-primary-soft)'
+									: 'rounded-md px-3 py-2 text-[15px] font-medium text-(--hooza-text-soft) transition-colors hover:bg-(--hooza-primary-soft) hover:text-(--hooza-primary)'
 							}
 						>
 							{item.label}
@@ -105,12 +109,12 @@ export default function Navbar() {
 					))}
 
 					<div className="mt-2 flex items-center gap-3 px-3 pt-2">
-						<a href="#fr" className="text-sm font-semibold tracking-[0.08em] text-[#8f0e58]">
+						<a href="#fr" className="text-sm font-semibold tracking-[0.08em] text-(--hooza-primary)">
 							FR
 						</a>
 						<a
 							href="#contact"
-							className="rounded-md bg-[#8f0e58] px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-[#a81a69]"
+							className="rounded-md bg-(--hooza-primary) px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-(--hooza-primary-dark)"
 						>
 							Contact
 						</a>
