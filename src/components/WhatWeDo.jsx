@@ -1,4 +1,4 @@
-import { FiRadio, FiShare2, FiUsers,  FiTrendingUp, FiZap, FiGlobe } from 'react-icons/fi'
+import { FiRadio, FiShare2, FiUsers,  FiTrendingUp, FiZap, FiGlobe, FiArrowRight, FiArrowDown } from 'react-icons/fi'
 
 const services = [
   {
@@ -107,7 +107,7 @@ export default function WhatWeDo() {
           {/* Header */}
           <div className="mb-12 text-center sm:mb-16 lg:mb-20">
             <p className="mb-3 inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest sm:text-sm" style={{background:'#f9f0f9',color:'#92278f'}}>
-              OUR EXPERTISE • NOTRE EXPERTISE
+             • OUR EXPERTISE
             </p>
             <h2 className="mt-4 text-3xl font-bold text-gray-900 sm:mt-6 sm:text-4xl lg:text-5xl">
               Empowering the Pan-African Narrative
@@ -131,41 +131,39 @@ export default function WhatWeDo() {
           </div>
 
           {/* Know More About Us Banner */}
-          <div
-            className="mt-8 w-full overflow-hidden rounded-2xl sm:mt-12 lg:mt-16"
-            style={{ background: 'linear-gradient(135deg, #92278f 0%, #6b1a6a 60%, #7a1f78 100%)' }}
-          >
-            <div className="flex flex-col gap-6 p-8 sm:p-10 lg:flex-row lg:items-center lg:gap-12 lg:p-12">
-              {/* Left – text */}
-              <div className="flex-1">
-                <h3 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-                  Know more About Us
-                </h3>
-                <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70 sm:text-base">
-                  We're always looking for exceptional talent. If you're a disruptor, a builder, or a storyteller, we want to hear from you.
-                </p>
+          <div className="mt-8 w-full overflow-hidden rounded-2xl sm:mt-12 lg:mt-16 flex flex-col lg:flex-row" style={{ minHeight: '420px' }}>
+            {/* Left – purple text panel */}
+            <div
+              className="flex flex-1 flex-col justify-center px-8 py-10 sm:px-10 sm:py-12 lg:px-12"
+              style={{ background: 'linear-gradient(135deg, #92278f 0%, #6b1a6a 100%)' }}
+            >
+              <h3 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+                Know more About Us
+              </h3>
+              <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70 sm:text-base">
+                A pan-African media and technology company powering digital transformation and Africa's narrative.
+              </p>
+              {/* Arrow pointing to the video */}
+              <div className="mt-8 flex items-center gap-3">
+                <FiArrowDown className="block lg:hidden animate-bounce text-white" style={{ width: 56, height: 56, strokeWidth: 2 }} />
+                <FiArrowRight className="hidden lg:block animate-pulse text-white" style={{ width: 72, height: 72, strokeWidth: 2 }} />
+                <span className="text-white font-semibold text-lg">Watch the video</span>
               </div>
+            </div>
 
-              {/* Right – video player */}
-              <div className="w-full lg:w-[55%] xl:w-[50%]">
-                <div
-                  className="group relative w-full overflow-hidden rounded-xl"
-                  style={{ background: 'rgba(255,255,255,0.12)', border: '2px solid rgba(255,255,255,0.25)', aspectRatio: '16/9' }}
-                >
-                  {/* Replace src with your actual video URL */}
-                  <video
-                    className="h-full w-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    controls
-                    preload="auto"
-                  >
-                    <source src="/aboutus.mp4" type="video/mp4" />
-                  </video>
-                </div>
-              </div>
+            {/* Right – video player */}
+            <div className="relative flex w-full items-center justify-center bg-gray-200 lg:w-[50%]" style={{ minHeight: '420px' }}>
+              <video
+                className="absolute inset-0 h-full w-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                preload="auto"
+              >
+                <source src="/aboutus.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
@@ -199,13 +197,6 @@ export default function WhatWeDo() {
           {/* Call to Action */}
           <div className="mt-16 flex flex-col items-center gap-4 sm:mt-20 sm:gap-6 lg:flex-row lg:justify-center">
             <p className="text-sm font-medium text-gray-600 sm:text-base">Ready to transform your media and tech strategy?</p>
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center rounded-md px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90"
-              style={{background:'#92278f'}}
-            >
-              Start Your Journey
-            </a>
           </div>
         </div>
       </section>

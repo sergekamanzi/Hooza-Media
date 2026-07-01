@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import WhatWeDo from './components/WhatWeDo'
 import WhereWeOperate from './components/WhereWeOperate'
 import Contact from './components/Contact'
+import News from './components/News'
 
 function App() {
   const [currentPage, setCurrentPage] = useState(window.location.hash || '#home')
@@ -20,6 +21,7 @@ function App() {
       {currentPage === '#home' && <Hero />}
       {currentPage === '#what-we-do' && <WhatWeDo />}
       {currentPage === '#where-we-operate' && <WhereWeOperate />}
+      {currentPage === '#news-press' && <News />}
       <Contact />
     </div>
   )
