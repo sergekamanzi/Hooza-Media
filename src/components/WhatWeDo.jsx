@@ -1,0 +1,214 @@
+import { FiRadio, FiShare2, FiUsers,  FiTrendingUp, FiZap, FiGlobe } from 'react-icons/fi'
+
+const services = [
+  {
+    id: 1,
+    Icon: FiRadio,
+    title: 'Digital Broadcasting',
+    description: 'State-of-the-art radio and television broadcasting infrastructure designed for wide-reach pan-African coverage and crystal-clear digital delivery.',
+  },
+  {
+    id: 2,
+    Icon: FiShare2,
+    title: 'Media Distribution',
+    description: 'Strategic placement and distribution of content across diverse digital platforms, ensuring maximum reach and engagement.',
+  },
+  {
+    id: 3,
+    Icon: FiUsers,
+    title: 'Corporate Consulting',
+    description: 'High-level advisory services for media integration and operational efficiency in the digital age.',
+  },
+  {
+    id: 5,
+    Icon: FiTrendingUp,
+    title: 'Strategic Communications',
+    description: 'Narrative shaping and content positioning for institutional and corporate entities.',
+  },
+  {
+    id: 6,
+    Icon: FiZap,
+    title: 'Technology & Streaming',
+    description: 'Proprietary OTT platforms and live-delivery streaming solutions optimized for the unique connectivity challenges of the African market.',
+  },
+  {
+    id: 7,
+    Icon: FiGlobe,
+    title: 'Market Expansion',
+    description: 'Strategic market intelligence for new regional markets.',
+  },
+]
+
+const processSteps = [
+  {
+    number: '01',
+    title: 'Discovery',
+    description: 'In-depth analysis of market needs and client objectives.',
+  },
+  {
+    number: '02',
+    title: 'Strategy',
+    description: 'Developing tailored frameworks for media and tech implementation.',
+  },
+  {
+    number: '03',
+    title: 'Execution',
+    description: 'Rigorous deployment of infrastructure and media services.',
+  },
+  {
+    number: '04',
+    title: 'Optimization',
+    description: 'Continuous monitoring and strategy refinement for sustained long-term impact.',
+  },
+]
+
+function ServiceCard({ Icon, title, description, tags }) {
+  return (
+    <div className="group flex flex-col rounded-lg border border-gray-200 bg-white p-6 transition-all duration-300 hover:shadow-lg hover:border-[#92278f] sm:p-8">
+      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg" style={{background:'#f9f0f9'}}>
+        <Icon className="h-6 w-6" style={{color:'#92278f'}} />
+      </div>
+      <h3 className="mb-3 text-lg font-semibold text-gray-900 sm:text-xl">{title}</h3>
+      <p className="flex-grow text-sm leading-relaxed text-gray-600 sm:text-base">{description}</p>
+      {tags && (
+        <div className="mt-4 flex flex-wrap gap-2">
+          {tags.map((tag, idx) => (
+            <span
+              key={idx}
+              className="inline-block rounded-full px-3 py-1 text-xs font-medium" style={{background:'#f9f0f9',color:'#92278f'}}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function ProcessStep({ number, title, description }) {
+  return (
+    <div className="flex flex-col">
+      <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-lg border-2 border-gray-300 bg-white text-2xl font-bold text-gray-400 transition-all duration-300 sm:h-20 sm:w-20 sm:text-3xl lg:border-2 lg:border-gray-400">
+        {number}
+      </div>
+      <h3 className="mb-2 text-lg font-semibold text-gray-900 sm:text-xl">{title}</h3>
+      <p className="text-sm leading-relaxed text-gray-600 sm:text-base">{description}</p>
+    </div>
+  )
+}
+
+export default function WhatWeDo() {
+  return (
+    <>
+      {/* What We Do Section */}
+      <section id="what-we-do" className="bg-gradient-to-b from-white via-gray-50 to-white py-16 sm:py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+          {/* Header */}
+          <div className="mb-12 text-center sm:mb-16 lg:mb-20">
+            <p className="mb-3 inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest sm:text-sm" style={{background:'#f9f0f9',color:'#92278f'}}>
+              OUR EXPERTISE • NOTRE EXPERTISE
+            </p>
+            <h2 className="mt-4 text-3xl font-bold text-gray-900 sm:mt-6 sm:text-4xl lg:text-5xl">
+              Empowering the Pan-African Narrative
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-gray-600 sm:mt-6 sm:text-base lg:text-lg">
+              We combine technical precision with media innovation to deliver high-impact communication and technology solutions across the African continent.
+            </p>
+          </div>
+
+          {/* Services Grid */}
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => (
+              <ServiceCard
+                key={service.id}
+                Icon={service.Icon}
+                title={service.title}
+                description={service.description}
+                tags={service.tags}
+              />
+            ))}
+          </div>
+
+          {/* Know More About Us Banner */}
+          <div
+            className="mt-8 w-full overflow-hidden rounded-2xl sm:mt-12 lg:mt-16"
+            style={{ background: 'linear-gradient(135deg, #92278f 0%, #6b1a6a 60%, #7a1f78 100%)' }}
+          >
+            <div className="flex flex-col gap-6 p-8 sm:p-10 lg:flex-row lg:items-center lg:gap-12 lg:p-12">
+              {/* Left – text */}
+              <div className="flex-1">
+                <h3 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+                  Know more About Us
+                </h3>
+                <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70 sm:text-base">
+                  We're always looking for exceptional talent. If you're a disruptor, a builder, or a storyteller, we want to hear from you.
+                </p>
+              </div>
+
+              {/* Right – video player */}
+              <div className="w-full lg:w-[55%] xl:w-[50%]">
+                <div
+                  className="group relative w-full overflow-hidden rounded-xl"
+                  style={{ background: 'rgba(255,255,255,0.12)', border: '2px solid rgba(255,255,255,0.25)', aspectRatio: '16/9' }}
+                >
+                  {/* Replace src with your actual video URL */}
+                  <video
+                    className="h-full w-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    controls
+                    preload="auto"
+                  >
+                    <source src="/aboutus.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Collaborative Process Section */}
+      <section id="process" className="bg-gradient-to-br from-gray-50 via-white to-gray-50 py-16 sm:py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+          {/* Header */}
+          <div className="mb-12 text-center sm:mb-16 lg:mb-20">
+            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">Our Collaborative Process</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-gray-600 sm:mt-6 sm:text-base lg:text-lg">
+              A structured methodology that ensures every project transitions seamlessly from strategy to execution.
+            </p>
+          </div>
+
+          {/* Process Steps Grid */}
+          <div className="grid gap-8 sm:gap-10 md:gap-12 lg:grid-cols-4">
+            {processSteps.map((step, idx) => (
+              <div key={idx} className="relative">
+                <ProcessStep number={step.number} title={step.title} description={step.description} />
+
+                {/* Connector Line (hidden on mobile) */}
+                {idx < processSteps.length - 1 && (
+                  <div className="absolute -right-[25%] top-8 hidden h-0.5 w-1/2 lg:block" style={{background:'linear-gradient(to right,#92278f,transparent)'}} />
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Call to Action */}
+          <div className="mt-16 flex flex-col items-center gap-4 sm:mt-20 sm:gap-6 lg:flex-row lg:justify-center">
+            <p className="text-sm font-medium text-gray-600 sm:text-base">Ready to transform your media and tech strategy?</p>
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center rounded-md px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90"
+              style={{background:'#92278f'}}
+            >
+              Start Your Journey
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}

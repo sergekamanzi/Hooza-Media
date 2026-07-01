@@ -28,6 +28,8 @@ function SocialIcon({ children, label, href = '#' }) {
 		<a
 			href={href}
 			aria-label={label}
+			target="_blank"
+			rel="noopener noreferrer"
 			className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-(--hooza-primary) shadow-sm transition-transform duration-200 hover:-translate-y-0.5"
 		>
 			{children}
@@ -53,22 +55,22 @@ export default function Contact() {
 								Follow Us
 							</p>
 							<div className="mt-4 flex items-center gap-3">
-								<SocialIcon label="Instagram">
+								<SocialIcon label="Instagram" href="https://www.instagram.com/hoozateam">
 									<svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
 										<path d="M7.75 3h8.5A4.75 4.75 0 0 1 21 7.75v8.5A4.75 4.75 0 0 1 16.25 21h-8.5A4.75 4.75 0 0 1 3 16.25v-8.5A4.75 4.75 0 0 1 7.75 3Zm0 1.5A3.25 3.25 0 0 0 4.5 7.75v8.5a3.25 3.25 0 0 0 3.25 3.25h8.5a3.25 3.25 0 0 0 3.25-3.25v-8.5a3.25 3.25 0 0 0-3.25-3.25h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5A3.5 3.5 0 1 0 12 16a3.5 3.5 0 0 0 0-7Zm5.2-2.25a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1Z" />
 									</svg>
 								</SocialIcon>
-								<SocialIcon label="Facebook">
+								<SocialIcon label="Facebook" href="https://www.facebook.com/hoozamedia">
 									<svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
 										<path d="M13.5 22v-8.5h2.9l.4-3h-3.3V8.6c0-.9.3-1.6 1.7-1.6H17V4.3c-.7-.1-1.5-.2-2.3-.2-2.4 0-4 1.5-4 4.1v2.3H8v3h2.7V22h2.8Z" />
 									</svg>
 								</SocialIcon>
-								<SocialIcon label="LinkedIn">
+								<SocialIcon label="LinkedIn" href="https://www.linkedin.com/company/hoozarwanda">
 									<svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
 										<path d="M6.5 8.5H3.75V21H6.5V8.5ZM5.12 3A1.62 1.62 0 1 0 5.13 6.25 1.62 1.62 0 0 0 5.12 3Zm6.22 5.5H8.7V21h2.7v-6.5c0-1.72.33-3.37 2.44-3.37 2.08 0 2.1 1.95 2.1 3.48V21h2.7v-7.36c0-3.61-.78-6.39-4.5-6.39-1.79 0-2.99.98-3.5 1.87h-.02V8.5Z" />
 									</svg>
 								</SocialIcon>
-								<SocialIcon label="X">
+								<SocialIcon label="X" href="https://www.twitter.com/hoozamedia">
 									<svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
 										<path d="M18.9 3h3.4l-7.4 8.48L23 21h-6.6l-5.16-6.29L5.8 21H2.4l7.88-9.02L1 3h6.78l4.67 5.73L18.9 3Zm-1.18 16h1.88L6.7 4.93H4.68L17.72 19Z" />
 									</svg>

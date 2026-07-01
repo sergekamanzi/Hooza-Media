@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 
 const heroBackgroundImage = '/w2.jpg'
+const heroBackgroundImage2 = '/hero2.jpg'
+const heroBackgroundImage3 = '/hero3.jpg'
 
 function CountUpNumber({ value, suffix = '', duration = 2600 }) {
 	const [count, setCount] = useState(0)
@@ -111,7 +113,7 @@ export default function Hero() {
 						<div className="overflow-hidden rounded-3xl bg-[#130d18] p-3 shadow-[0_24px_60px_rgba(19,13,24,0.14)]">
 							<div className="relative aspect-4/3 overflow-hidden rounded-2xl bg-black">
 								<img
-									src={heroBackgroundImage}
+									src={heroBackgroundImage2}
 									alt="Connected global market illustration"
 									className="h-full w-full object-cover opacity-90"
 								/>
@@ -224,7 +226,7 @@ export default function Hero() {
 						<div className="overflow-hidden rounded-[1.25rem] bg-white shadow-[0_24px_60px_rgba(124,46,120,0.16)]">
 							<div className="relative aspect-video w-full overflow-hidden sm:aspect-video lg:aspect-video">
 								<img
-									src={heroBackgroundImage}
+									src={heroBackgroundImage3}
 									alt="Global connection map"
 									className="h-full w-full object-cover"
 								/>
