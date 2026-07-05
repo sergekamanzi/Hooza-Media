@@ -233,9 +233,9 @@ export default function WhereWeOperate() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         {/* Header */}
         <div className="mb-10 sm:mb-14">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">Strategic Anchors</h2>
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">Our Regional Hubs</h2>
           <p className="mt-3 max-w-lg text-sm leading-7 text-gray-500 sm:text-base">
-            Operating at the local level with a global management standard, our regional hubs drive specific sectoral excellence across the continent.
+            Operating locally with global standards, our regional hubs drive innovation, collaboration, and sector-specific excellence across Africa and beyond.
           </p>
         </div>
 
