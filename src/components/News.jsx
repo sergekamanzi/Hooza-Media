@@ -37,6 +37,7 @@ const featuredArticle = {
     'Startup Africa caught up with Victor Nkindi, Founder and CEO of Hooza, a digital media house based in Kigali, Rwanda to discuss about himself and his startup journey.',
   cta: 'Read Full Report',
   image: '/new1.webp',
+  url: 'https://startupafricas.com/hooza/',
 }
 
 const gridArticles = [
@@ -46,9 +47,10 @@ const gridArticles = [
     categoryColor: '#92278f',
     date: '13 May 2014',
     readTime: '5 min read',
-    title: 'African Hooza media pioneer launches its first podcast platform in french',
-    description: "Rwanda’s digital media, Hooza launched on Thursday a mobile podcast application available on Android and IoS, downloadable ...",
-    image: '/new2.jpg',
+    title: 'Forbes Africa: TECH STARTUPS WILL SUPPORT AFRICA’S GROWTH',
+    description: "Across the African continent, more technology startups are emerging. They have an important role to play...",
+    image: '/new2.jfif',
+    url: '/ADVRT Accenture_proof_005.pdf',
   },
   {
     id: 2,
@@ -59,17 +61,17 @@ const gridArticles = [
     title: 'Enhancing citizen engagement among rural populations in Rwanda with a mobile solution',
     description: 'This technology was used during the 2017 Rwandan presidential elections,...',
     image: '/new3.webp',
+    url: 'https://www.itu.int/hub/2020/06/enhancing-citizen-engagement-among-rural-populations-in-rwanda-with-a-mobile-solution/',
   },
   {
     id: 3,
-    category: 'CSR & Impact',
+    category: 'Impact',
     categoryColor: '#16a34a',
-    date: '28 Sep 2024',
+    date: '22 Apr 2026',
     readTime: '4 min read',
-    title: 'GEW2020 Botswana: Hooza Media Founder explains why Start Ups need to use Social media',
-    description: 'As more and more people are getting into entrepreneurship, especially for young people,...',
-    image: '/new4.jpg',
-  },
+    title: 'Bridging Africa’s Digital Usage Gap: The Voice at the End of the Line',
+    description: 'Somewhere outside Kigoma, a farmer picks up a feature phone that cost her less than a sack of maize. She doesn’t tap an app...',
+    image: '/new4.jpeg',    url: 'https://www.ktpress.rw/2026/04/bridging-africas-digital-usage-gap-the-voice-at-the-end-of-the-line/',  },
 ]
 
 const bottomArticles = [
@@ -82,6 +84,7 @@ const bottomArticles = [
     title: 'Victor Nkindi is Using the Power of the Media to Drive Civic Education in Rwanda',
     description: 'following the deadline set by the International Telecommunication Union (ITU),...',
     image: '/new5.jpg',
+    url: 'https://www.tonyelumelufoundation.org/east-africa/victor-nkidnli-is-using-the-power-of-the-media-to-drive-civic-education-in-rwanda',
   },
   {
     id: 5,
@@ -92,6 +95,7 @@ const bottomArticles = [
     title: 'VOA Kinyarwanda programming available on mobile in Rwanda',
     description: 'Increasingly, people are using their mobile phones to access information that is important to them,...',
     image: '/new6.jpg',
+    url: 'https://www.usagm.gov/2016/05/02/voa-kinyarwanda-programming-available-on-mobile-in-rwanda/',
   },
 ]
 
@@ -126,7 +130,9 @@ function ArticleCard({ article }) {
         <h3 className="mb-2 text-sm font-bold leading-snug text-gray-900 sm:text-base">{article.title}</h3>
         <p className="flex-1 text-xs leading-relaxed text-gray-500 sm:text-sm">{article.description}</p>
         <a
-          href="#"
+          href={article.url || '#'}
+          target={article.url ? '_blank' : undefined}
+          rel={article.url ? 'noopener noreferrer' : undefined}
           className="mt-4 inline-flex items-center gap-1 text-xs font-semibold sm:text-sm"
           style={{ color: '#92278f' }}
         >
@@ -205,7 +211,9 @@ export default function News() {
                 {featuredArticle.description}
               </p>
               <a
-                href="#"
+                href={featuredArticle.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold"
                 style={{ color: '#92278f' }}
               >

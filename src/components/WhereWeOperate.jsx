@@ -1,17 +1,13 @@
 const cities = [
-  { name: 'PARIS', top: '22%', left: '44%' },
-  { name: 'DAKAR', top: '38%', left: '30%' },
-  { name: 'KIGALI', top: '58%', left: '53%' },
-  { name: 'NAIROBI', top: '56%', left: '61%' },
+  { name: '· TANZANIA', top: '63%', left: '58%', color: '#92278f' },
+  { name: '· SENEGAL', top: '38%', left: '30%', color: '#92278f' },
+  { name: '· RWANDA', top: '58%', left: '53%', color: '#f5a623', hq: true },
 ]
 
 const connections = [
-  { x1: '44%', y1: '22%', x2: '30%', y2: '38%' },
-  { x1: '44%', y1: '22%', x2: '53%', y2: '58%' },
-  { x1: '44%', y1: '22%', x2: '61%', y2: '56%' },
+  { x1: '58%', y1: '63%', x2: '30%', y2: '38%' },
+  { x1: '58%', y1: '63%', x2: '53%', y2: '58%' },
   { x1: '30%', y1: '38%', x2: '53%', y2: '58%' },
-  { x1: '53%', y1: '58%', x2: '61%', y2: '56%' },
-  { x1: '30%', y1: '38%', x2: '61%', y2: '56%' },
 ]
 
 export default function WhereWeOperate() {
@@ -148,14 +144,14 @@ export default function WhereWeOperate() {
               {/* Pulse ring */}
               <span
                 className="absolute inline-flex h-5 w-5 animate-ping rounded-full opacity-60"
-                style={{ background: 'rgba(146,39,143,0.4)' }}
+                style={{ background: city.hq ? 'rgba(245,166,35,0.5)' : 'rgba(146,39,143,0.4)' }}
               />
               {/* Dot */}
               <span
                 className="relative inline-flex h-3 w-3 rounded-full border-2 border-white"
-                style={{ background: '#92278f' }}
+                style={{ background: city.color }}
               />
-              <span className="mt-2 whitespace-nowrap text-[10px] font-semibold uppercase tracking-widest text-white/80 sm:text-xs">
+              <span className={`mt-2 whitespace-nowrap text-[10px] font-semibold uppercase tracking-widest sm:text-xs ${city.hq ? 'text-[#f5a623]' : 'text-white/80'}`}>
                 {city.name}
               </span>
             </div>
@@ -210,9 +206,8 @@ export default function WhereWeOperate() {
             </p>
             <ul className="space-y-2">
               {[
-                { label: 'Global HQ', color: '#92278f' },
+                { label: 'Global HQ', color: '#f5a623' },
                 { label: 'Regional Office', color: '#c76bc5' },
-                { label: 'Strategic Partnerships', color: '#6b1a6a' },
               ].map((item) => (
                 <li key={item.label} className="flex items-center gap-2">
                   <span
@@ -228,12 +223,12 @@ export default function WhereWeOperate() {
       </div>
     </section>
 
-    {/* ── Strategic Anchors Section ── */}
+    {/* ── Strategic Partnerships Section ── */}
     <section className="bg-[#faf5fb] pb-16 sm:pb-20 lg:pb-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         {/* Header */}
         <div className="mb-10 sm:mb-14">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">Our Regional Hubs</h2>
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">Strategic Partnerships</h2>
           <p className="mt-3 max-w-lg text-sm leading-7 text-gray-500 sm:text-base">
             Operating locally with global standards, our regional hubs drive innovation, collaboration, and sector-specific excellence across Africa and beyond.
           </p>
@@ -244,21 +239,21 @@ export default function WhereWeOperate() {
           {[
             {
               tag: 'CENTRAL HUB',
-              image: 'https://images.unsplash.com/photo-1611348586755-53860f3a4e74?w=800&q=80',
+              image: '/kigali.jpeg',
               city: 'Kigali, Rwanda',
               description: 'The nerve center of Hooza R&D, hosting our primary server architecture and AI media development lab.',
             },
             {
               tag: 'WEST CLUSTER',
-              image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80',
+              image: '/dakar.jpeg',
               city: 'Dakar, Senegal',
               description: 'Strategic gateway for Francophone West Africa operations, specializing in mass-mobile citizen engagement.',
             },
             {
-              tag: 'EU RELATIONS',
-              image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80',
-              city: 'Paris, France',
-              description: 'Partner office managing international institutional relationships and European media-tech consortiums.',
+              tag: 'EAST CLUSTER',
+              image: '/dar.jpeg',
+              city: 'Dar es Salaam, Tanzania',
+              description: 'Eastern Africa hub driving Swahili-language media outreach and last-mile connectivity across the Great Lakes region.',
             },
           ].map((hub) => (
             <div
@@ -287,6 +282,43 @@ export default function WhereWeOperate() {
                 <p className="text-sm leading-relaxed text-gray-500 sm:text-base">{hub.description}</p>
               </div>
             </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Country Ticker ── */}
+      <style>{`
+        @keyframes partnerTicker {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .partner-ticker-track {
+          display: flex;
+          width: max-content;
+          animation: partnerTicker 35s linear infinite;
+        }
+        .partner-ticker-track:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+      <div className="mt-12 overflow-hidden sm:mt-16 lg:mt-20">
+        <div className="partner-ticker-track">
+          {[
+            'DRC', 'Mozambique', 'Zambia', 'Cameroon', 'Ghana', 'Mali',
+            'Botswana', 'Burkina Faso', 'Nigeria', 'Haiti', 'Liberia',
+            'Kenya', 'France', 'USA', 'Belgium', 'Germany', 'Greece',
+            'Cyprus', 'Mexico',
+            'DRC', 'Mozambique', 'Zambia', 'Cameroon', 'Ghana', 'Mali',
+            'Botswana', 'Burkina Faso', 'Nigeria', 'Haiti', 'Liberia',
+            'Kenya', 'France', 'USA', 'Belgium', 'Germany', 'Greece',
+            'Cyprus', 'Mexico',
+          ].map((country, i) => (
+            <span
+              key={i}
+              className="mx-3 inline-flex shrink-0 items-center rounded-full border border-[#92278f]/25 bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#92278f] shadow-sm sm:mx-4 sm:px-5 sm:py-2.5 sm:text-xs lg:text-sm"
+            >
+              {country}
+            </span>
           ))}
         </div>
       </div>

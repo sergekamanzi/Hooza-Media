@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 
 const heroBackgroundImage = '/w2.jpg'
-const heroBackgroundImage2 = '/hero2.jpg'
-const heroBackgroundImage3 = '/hero3.jpg'
+const heroBackgroundImage1 = '/hero1.jpeg'
+const heroBackgroundImage2 = '/hero2.jpeg'
 
 function CountUpNumber({ value, suffix = '', duration = 2600 }) {
 	const [count, setCount] = useState(0)
@@ -90,16 +90,21 @@ export default function Hero() {
 
 						<div className="mt-6 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
 							<a
-								href="#solutions"
+								href="#"
+								onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('open-contact')) }}
 								className="inline-flex items-center justify-center rounded-sm bg-(--hooza-primary) px-5 py-3 text-xs font-semibold uppercase tracking-[0.08em] text-white shadow-[0_10px_24px_rgba(146,39,143,0.24)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-(--hooza-primary-dark) sm:px-7 sm:py-4 sm:text-sm"
 							>
-								Our Solutions 
+								Start Now
 							</a>
 							<a
 								href="#case-studies"
-								className="inline-flex items-center justify-center rounded-sm border border-(--hooza-primary) bg-transparent px-5 py-3 text-xs font-semibold uppercase tracking-[0.08em] text-(--hooza-primary) transition-colors duration-200 hover:bg-white/75 sm:px-7 sm:py-4 sm:text-sm"
+								className="inline-flex items-center justify-center text-(--hooza-primary) transition-transform duration-200 hover:translate-x-1"
+								aria-label="Case Studies"
 							>
-								Case Studies 
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7 sm:h-8 sm:w-8">
+									<circle cx="12" cy="12" r="10" />
+									<path d="M12 8l4 4-4 4M8 12h8" />
+								</svg>
 							</a>
 						</div>
 					</div>
@@ -110,10 +115,10 @@ export default function Hero() {
 			<section className="bg-white py-14 sm:py-18 lg:py-24">
 				<div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:items-center lg:px-10">
 					<div className="lg:col-span-6">
-						<div className="overflow-hidden rounded-3xl bg-[#130d18] p-3 shadow-[0_24px_60px_rgba(19,13,24,0.14)]">
+						<div className="overflow-hidden rounded-3xl shadow-[0_24px_60px_rgba(19,13,24,0.14)]">
 							<div className="relative aspect-4/3 overflow-hidden rounded-2xl bg-black">
 								<img
-									src={heroBackgroundImage2}
+									src={heroBackgroundImage1}
 									alt="Connected global market illustration"
 									className="h-full w-full object-cover opacity-90"
 								/>
@@ -168,47 +173,56 @@ export default function Hero() {
 
 			<section className="bg-white px-4 py-8 sm:px-6 sm:py-10 lg:px-10 lg:py-14">
 				<div className="mx-auto max-w-7xl  bg-[#2a182f] px-6 py-12 text-center text-[#f5d7df] shadow-[0_24px_60px_rgba(19,13,24,0.18)] sm:px-10 sm:py-14 lg:px-16 lg:py-16">
-					<div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
+					<div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-10">
 						<div className="space-y-3">
 							<p className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-								<CountUpNumber value={25} suffix="M+" duration={6000} />
+								<CountUpNumber value={20} suffix="+" duration={5000} />
 							</p>
 							<p className="text-[11px] font-medium uppercase tracking-[0.28em] text-[#cdbec7] sm:text-xs">
-								Monthly listeners
+								Countries reached across Africa, plus Haiti
 							</p>
 						</div>
 
 						<div className="space-y-3">
 							<p className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-								<CountUpNumber value={12} duration={5200} />
+								<CountUpNumber value={2013} duration={6000} />
 							</p>
 							<p className="text-[11px] font-medium uppercase tracking-[0.28em] text-[#cdbec7] sm:text-xs">
-								Global awards
+								Delivering last-mile voice since
 							</p>
 						</div>
 
 						<div className="space-y-3">
 							<p className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-								<CountUpNumber value={150} suffix="+" duration={6500} />
+								0
 							</p>
 							<p className="text-[11px] font-medium uppercase tracking-[0.28em] text-[#cdbec7] sm:text-xs">
-								Team experts
+								No internet needed — voice & SMS on any handset
 							</p>
 						</div>
 
 						<div className="space-y-3">
 							<p className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-								<CountUpNumber value={300} suffix="%" duration={7000} />
+								<CountUpNumber value={80} suffix="%+" duration={5500} />
 							</p>
 							<p className="text-[11px] font-medium uppercase tracking-[0.28em] text-[#cdbec7] sm:text-xs">
-								Growth rate
+								Population reachable beyond digital barriers
+							</p>
+						</div>
+
+						<div className="space-y-3">
+							<p className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+								<CountUpNumber value={15} suffix="M+" duration={6000} />
+							</p>
+							<p className="text-[11px] font-medium uppercase tracking-[0.28em] text-[#cdbec7] sm:text-xs">
+								Monthly users
 							</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section className="bg-[#f6e9f7] px-4 py-12 sm:px-6 sm:py-16 lg:px-10 lg:py-20">
+			<section className="bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-10 lg:py-20">
 				<div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-12 lg:gap-16">
 					<div className="lg:col-span-7 xl:col-span-6">
 						<div className="inline-flex rounded-full bg-[#f3b4ef] px-4 py-1 text-xs font-medium uppercase tracking-[0.18em] text-[#7d2c76] shadow-sm sm:text-sm">
@@ -223,14 +237,13 @@ export default function Hero() {
 					</div>
 
 					<div className="lg:col-span-5 xl:col-span-6 lg:justify-self-end">
-						<div className="overflow-hidden rounded-[1.25rem] bg-white shadow-[0_24px_60px_rgba(124,46,120,0.16)]">
+						<div className="overflow-hidden rounded-[1.25rem]">
 							<div className="relative aspect-video w-full overflow-hidden sm:aspect-video lg:aspect-video">
 								<img
-									src={heroBackgroundImage3}
+									src={heroBackgroundImage2}
 									alt="Global connection map"
 									className="h-full w-full object-cover"
 								/>
-								<div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.1)_0%,rgba(146,39,143,0.08)_100%)]" />
 							</div>
 						</div>
 					</div>

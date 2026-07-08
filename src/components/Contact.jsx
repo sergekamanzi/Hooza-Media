@@ -55,7 +55,7 @@ export default function Contact() {
 								Follow Us
 							</p>
 							<div className="mt-4 flex items-center gap-3">
-								<SocialIcon label="Instagram" href="https://www.instagram.com/hoozateam">
+								<SocialIcon label="Instagram" href="https://www.instagram.com/hoozamedia/">
 									<svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
 										<path d="M7.75 3h8.5A4.75 4.75 0 0 1 21 7.75v8.5A4.75 4.75 0 0 1 16.25 21h-8.5A4.75 4.75 0 0 1 3 16.25v-8.5A4.75 4.75 0 0 1 7.75 3Zm0 1.5A3.25 3.25 0 0 0 4.5 7.75v8.5a3.25 3.25 0 0 0 3.25 3.25h8.5a3.25 3.25 0 0 0 3.25-3.25v-8.5a3.25 3.25 0 0 0-3.25-3.25h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5A3.5 3.5 0 1 0 12 16a3.5 3.5 0 0 0 0-7Zm5.2-2.25a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1Z" />
 									</svg>

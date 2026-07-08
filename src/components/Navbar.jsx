@@ -4,7 +4,6 @@ const navItems = [
 	{ label: 'Home', href: '#home' },
 	{ label: 'What We Do', href: '#what-we-do' },
 	{ label: 'Where We Operate', href: '#where-we-operate' },
-	{ label: 'Partners & References', href: '#partners-references' },
 	{ label: 'News & Press', href: '#news-press' },
 	{ label: 'Careers', href: '#careers' },
 ]
@@ -21,9 +20,130 @@ function MenuIcon({ open }) {
 	)
 }
 
+function ContactModal({ onClose }) {
+	useEffect(() => {
+		const onKey = (e) => { if (e.key === 'Escape') onClose() }
+		document.addEventListener('keydown', onKey)
+		document.body.style.overflow = 'hidden'
+		return () => {
+			document.removeEventListener('keydown', onKey)
+			document.body.style.overflow = ''
+		}
+	}, [onClose])
+
+	return (
+		<div className="fixed inset-0 z-999 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4" onClick={onClose}>
+			<div
+				className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-2xl bg-[#f2deef] shadow-2xl"
+				onClick={(e) => e.stopPropagation()}
+			>
+				{/* Close button */}
+				<button
+					onClick={onClose}
+					className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/80 text-[#92278f] shadow transition-colors hover:bg-white"
+					aria-label="Close"
+				>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="h-5 w-5">
+						<path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
+					</svg>
+				</button>
+
+				<div className="grid lg:grid-cols-3">
+					{/* Form */}
+					<div className="lg:col-span-2 p-8 sm:p-10">
+						<div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#92278f]/30 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#92278f]">
+							<span className="h-1.5 w-1.5 rounded-full bg-[#92278f]" />
+							General Inquiry
+						</div>
+
+						<form onSubmit={(e) => e.preventDefault()} className="space-y-5">
+							<div className="grid gap-5 sm:grid-cols-2">
+								<div>
+									<label className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.18em] text-[#5a3d56]">Full Name</label>
+									<input type="text" placeholder="John Doe" className="w-full rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
+								</div>
+								<div>
+									<label className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.18em] text-[#5a3d56]">Email Address</label>
+									<input type="email" placeholder="john@example.com" className="w-full rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
+								</div>
+							</div>
+
+							<div className="grid gap-5 sm:grid-cols-2">
+								<div>
+									<label className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.18em] text-[#5a3d56]">Organization</label>
+									<input type="text" placeholder="Company Name" className="w-full rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
+								</div>
+								<div>
+									<label className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.18em] text-[#5a3d56]">Phone</label>
+									<input type="tel" placeholder="+250 ..." className="w-full rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
+								</div>
+							</div>
+
+							<div>
+								<label className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.18em] text-[#5a3d56]">Your Message</label>
+								<textarea rows={5} placeholder="How can we help you?" className="w-full resize-none rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
+							</div>
+
+							<label className="flex items-start gap-3 cursor-pointer">
+								<input type="checkbox" className="mt-0.5 h-4 w-4 accent-[#92278f]" />
+								<span className="text-xs leading-relaxed text-[#5a3d56]">
+									I consent to the processing of my personal data in accordance with the{' '}
+									<a href="#gdpr" className="underline text-[#92278f]">GDPR Notice</a> and{' '}
+									<a href="#privacy" className="underline text-[#92278f]">Privacy Policy</a>.
+
+								</span>
+							</label>
+
+							<button
+								type="submit"
+								className="rounded-md bg-[#92278f] px-7 py-3 text-xs font-bold uppercase tracking-[0.16em] text-white shadow transition-colors hover:bg-[#6b1a6a]"
+							>
+								Send Message
+							</button>
+						</form>
+					</div>
+
+					{/* Sidebar */}
+					<div className="flex flex-col justify-center gap-8 rounded-b-2xl bg-[#6b1a6a] p-8 lg:rounded-l-none lg:rounded-r-2xl sm:p-10">
+						<div className="flex items-start gap-4">
+							<div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-5 w-5 text-white">
+									<path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2m6-2a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z" />
+								</svg>
+							</div>
+							<div>
+								<p className="text-sm font-bold text-white">24/7 Strategic Support</p>
+								<p className="mt-1 text-xs leading-relaxed text-white/65">Our specialized pan-African teams are active across all time zones.</p>
+							</div>
+						</div>
+
+						<div>
+							<p className="text-2xl font-bold text-white tracking-tight">+250-788-537-894</p>
+							<p className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-white/50">Phone (RW)</p>
+						</div>
+
+						<div>
+							<p className="text-base font-semibold text-white">info@hooza.rw</p>
+							<p className="mt-1 text-base font-semibold text-white">nkindi@hooza.rw</p>
+							<p className="mt-2 text-[10px] font-semibold uppercase tracking-widest text-white/50">Email</p>
+						</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	)
+}
+
 export default function Navbar() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 	const [activeHref, setActiveHref] = useState('#home')
+	const [isContactOpen, setIsContactOpen] = useState(false)
+
+	useEffect(() => {
+		const handler = () => setIsContactOpen(true)
+		window.addEventListener('open-contact', handler)
+		return () => window.removeEventListener('open-contact', handler)
+	}, [])
 
 	useEffect(() => {
 		const updateActiveHref = () => {
@@ -37,6 +157,8 @@ export default function Navbar() {
 	}, [])
 
 	return (
+		<>
+		{isContactOpen && <ContactModal onClose={() => setIsContactOpen(false)} />}
 		<header className="sticky top-0 z-50 border-b border-(--hooza-border) bg-[rgba(251,246,252,0.94)] backdrop-blur-sm">
 			<div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-10">
 				<a href="#home" className="flex shrink-0 items-center" aria-label="Hooza Media home">
@@ -67,12 +189,13 @@ export default function Navbar() {
 					<a href="#fr" className="text-sm font-semibold tracking-[0.08em] text-(--hooza-primary)">
 						FR
 					</a>
-					<a
-						href="#contact"
+					<button
+						type="button"
+						onClick={() => setIsContactOpen(true)}
 						className="rounded-md bg-(--hooza-primary) px-6 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-(--hooza-primary-dark)"
 					>
 						Contact
-					</a>
+					</button>
 				</div>
 
 				<button
@@ -111,15 +234,17 @@ export default function Navbar() {
 						<a href="#fr" className="text-sm font-semibold tracking-[0.08em] text-(--hooza-primary)">
 							FR
 						</a>
-						<a
-							href="#contact"
+						<button
+							type="button"
+							onClick={() => { setIsMenuOpen(false); setIsContactOpen(true) }}
 							className="rounded-md bg-(--hooza-primary) px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-(--hooza-primary-dark)"
 						>
 							Contact
-						</a>
+						</button>
 					</div>
 				</div>
 			</div>
 		</header>
+		</>
 	)
 }
