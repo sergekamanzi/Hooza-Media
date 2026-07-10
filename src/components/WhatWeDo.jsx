@@ -194,9 +194,44 @@ export default function WhatWeDo() {
             ))}
           </div>
 
-          {/* Call to Action */}
-          <div className="mt-16 flex flex-col items-center gap-4 sm:mt-20 sm:gap-6 lg:flex-row lg:justify-center">
-            <p className="text-sm font-medium text-gray-600 sm:text-base">Ready to transform your media and tech strategy?</p>
+        </div>
+      </section>
+
+      {/* ── Call to Action Banner ── */}
+      <section className="relative overflow-hidden bg-[#28252a] py-0">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col lg:flex-row min-h-[600px]">
+
+            {/* Left — text */}
+            <div className="relative z-10 flex w-full flex-col justify-center px-8 py-14 sm:px-12 lg:w-1/2 lg:px-16">
+              {/* label */}
+
+              <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+                Ready to transform your<br />
+                <span style={{ color: '#c76bc5' }}>media & tech strategy?</span>
+              </h2>
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <button
+                  onClick={() => window.dispatchEvent(new Event('open-contact'))}
+                  className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold text-white transition-opacity duration-200 hover:opacity-85 sm:text-base"
+                  style={{ background: 'linear-gradient(135deg, #92278f 0%, #6b1a6a 100%)' }}
+                >
+                  Contact Us
+                  <FiArrowRight className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
+            {/* Right — image */}
+            <div className="relative w-full lg:w-1/2 min-h-[280px] lg:min-h-full overflow-hidden">
+              <img
+                src="/1.png"
+                alt="Transform your strategy"
+                className="absolute inset-0 h-full w-full object-cover opacity-80"
+              />
+              {/* overlay */}
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to left, transparent 60%, #28252a 100%)' }} />
+            </div>
           </div>
         </div>
       </section>

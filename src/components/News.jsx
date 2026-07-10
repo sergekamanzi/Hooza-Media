@@ -49,7 +49,7 @@ const gridArticles = [
     readTime: '5 min read',
     title: 'Forbes Africa: TECH STARTUPS WILL SUPPORT AFRICA’S GROWTH',
     description: "Across the African continent, more technology startups are emerging. They have an important role to play...",
-    image: '/new2.jfif',
+    image: '/new2.jpg',
     url: '/ADVRT Accenture_proof_005.pdf',
   },
   {

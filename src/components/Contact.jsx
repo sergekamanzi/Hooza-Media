@@ -2,16 +2,11 @@ const navigationLinks = [
 	{ label: 'Home', href: '#home' },
 	{ label: 'What We Do', href: '#what-we-do' },
 	{ label: 'Where We Operate', href: '#where-we-operate' },
-	{ label: 'Partners & References', href: '#partners-references' },
 	{ label: 'Careers', href: '#careers' },
-	{ label: 'Case Studies', href: '#case-studies' },
 	{ label: 'News & Press', href: '#news-press' },
 ]
 
 const resourceLinks = [
-	{ label: 'Press Kit', href: '#press-kit' },
-	{ label: 'Case Studies', href: '#case-studies' },
-	{ label: 'News Room', href: '#news-room' },
 	{ label: 'Brand Assets', href: '#brand-assets' },
 	{ label: 'Hooza & Partners', href: '#partners-france' },
 ]
@@ -97,14 +92,14 @@ export default function Contact() {
 
 						<div>
 							<h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-(--hooza-text)">
-								Resources
+								Legal
 							</h2>
 							<ul className="mt-5 space-y-4 text-sm text-[#6f5a67] sm:text-base">
-								{resourceLinks.map((link) => (
+								{legalLinks.map((link) => (
 									<li key={link.label}>
-										<a className="transition-colors hover:text-(--hooza-primary)" href={link.href}>
+										<span className="cursor-default text-[#6f5a67]">
 											{link.label}
-										</a>
+										</span>
 									</li>
 								))}
 							</ul>
@@ -112,14 +107,14 @@ export default function Contact() {
 
 						<div>
 							<h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-(--hooza-text)">
-								Legal
+								Resources
 							</h2>
 							<ul className="mt-5 space-y-4 text-sm text-[#6f5a67] sm:text-base">
-								{legalLinks.map((link) => (
+								{resourceLinks.map((link) => (
 									<li key={link.label}>
-										<a className="transition-colors hover:text-(--hooza-primary)" href={link.href}>
+										<span className="cursor-default text-[#6f5a67]">
 											{link.label}
-										</a>
+										</span>
 									</li>
 								))}
 							</ul>
@@ -128,7 +123,7 @@ export default function Contact() {
 				</div>
 
 				<div className="mt-12 border-t border-white/60 pt-8 text-center text-xs leading-6 text-[#6f5a67] sm:mt-14 sm:text-sm">
-					© 2026 Hooza Group. All Rights Reserved. Pan-African Media-Tech Excellence.
+					© 2026 Hooza Group. All Rights Reserved.<br/> Pan-African Media-Tech Excellence with © 2026 Hooza Media. All Rights Reserved.
 				</div>
 			</div>
 		</footer>

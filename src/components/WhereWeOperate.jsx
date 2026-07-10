@@ -2,12 +2,14 @@ const cities = [
   { name: '· TANZANIA', top: '63%', left: '58%', color: '#92278f' },
   { name: '· SENEGAL', top: '38%', left: '30%', color: '#92278f' },
   { name: '· RWANDA', top: '58%', left: '53%', color: '#f5a623', hq: true },
+  { name: '· FRANCE', top: '14%', left: '36%', color: '#92278f' },
 ]
 
 const connections = [
   { x1: '58%', y1: '63%', x2: '30%', y2: '38%' },
   { x1: '58%', y1: '63%', x2: '53%', y2: '58%' },
   { x1: '30%', y1: '38%', x2: '53%', y2: '58%' },
+  { x1: '30%', y1: '38%', x2: '36%', y2: '14%' },
 ]
 
 export default function WhereWeOperate() {
@@ -40,9 +42,9 @@ export default function WhereWeOperate() {
           {/* Right – image */}
           <div className="flex items-start justify-start lg:justify-end lg:pt-4">
             <img
-              src="/operate.jpg"
+              src="/operate1.png"
               alt="Where We Operate"
-              className="w-full max-w-sm rounded-2xl object-cover shadow-md lg:max-w-md"
+              className="w-full max-w-sm object-cover lg:max-w-md"
             />
           </div>
         </div>
@@ -208,6 +210,7 @@ export default function WhereWeOperate() {
               {[
                 { label: 'Global HQ', color: '#f5a623' },
                 { label: 'Regional Office', color: '#c76bc5' },
+                { label: 'France', color: '#92278f' },
               ].map((item) => (
                 <li key={item.label} className="flex items-center gap-2">
                   <span
@@ -235,7 +238,7 @@ export default function WhereWeOperate() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 sm:gap-8">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 sm:gap-8">
           {[
             {
               tag: 'CENTRAL HUB',
@@ -253,7 +256,13 @@ export default function WhereWeOperate() {
               tag: 'EAST CLUSTER',
               image: '/dar.jpeg',
               city: 'Dar es Salaam, Tanzania',
-              description: 'Eastern Africa hub driving Swahili-language media outreach and last-mile connectivity across the Great Lakes region.',
+              description: 'Eastern Africa hub driving Swahili-language, Portuguese and English media outreach and last-mile connectivity across the Great Lakes region and Austral Africa.',
+            },
+            {
+              tag: 'EU CLUSTER',
+              image: '/paris.jpeg',
+              city: 'Paris, France',
+              description: 'Our strategic advisory boutique consulting firm for business intelligence and investment support.',
             },
           ].map((hub) => (
             <div

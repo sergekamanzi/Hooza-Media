@@ -60,11 +60,11 @@ function ContactModal({ onClose }) {
 							<div className="grid gap-5 sm:grid-cols-2">
 								<div>
 									<label className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.18em] text-[#5a3d56]">Full Name</label>
-									<input type="text" placeholder="John Doe" className="w-full rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
+									<input type="text" placeholder="Names" className="w-full rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
 								</div>
 								<div>
 									<label className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.18em] text-[#5a3d56]">Email Address</label>
-									<input type="email" placeholder="john@example.com" className="w-full rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
+									<input type="email" placeholder="@example.com" className="w-full rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
 								</div>
 							</div>
 
@@ -118,13 +118,7 @@ function ContactModal({ onClose }) {
 						</div>
 
 						<div>
-							<p className="text-2xl font-bold text-white tracking-tight">+250-788-537-894</p>
-							<p className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-white/50">Phone (RW)</p>
-						</div>
-
-						<div>
 							<p className="text-base font-semibold text-white">info@hooza.rw</p>
-							<p className="mt-1 text-base font-semibold text-white">nkindi@hooza.rw</p>
 							<p className="mt-2 text-[10px] font-semibold uppercase tracking-widest text-white/50">Email</p>
 						</div>
 				</div>
