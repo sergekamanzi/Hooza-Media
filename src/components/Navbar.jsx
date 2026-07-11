@@ -1,4 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
+
+const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 const navItems = [
 	{ label: 'Home', href: '#home' },
@@ -21,6 +26,24 @@ function MenuIcon({ open }) {
 }
 
 function ContactModal({ onClose }) {
+	const formRef = useRef(null)
+	const [formStatus, setFormStatus] = useState('idle') // idle | sending | success | error
+	const [consent, setConsent] = useState(false)
+
+	const handleSubmit = async (e) => {
+		e.preventDefault()
+		if (!consent) return
+		setFormStatus('sending')
+		try {
+			await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY })
+			setFormStatus('success')
+			formRef.current.reset()
+			setConsent(false)
+		} catch {
+			setFormStatus('error')
+		}
+	}
+
 	useEffect(() => {
 		const onKey = (e) => { if (e.key === 'Escape') onClose() }
 		document.addEventListener('keydown', onKey)
@@ -56,49 +79,61 @@ function ContactModal({ onClose }) {
 							General Inquiry
 						</div>
 
-						<form onSubmit={(e) => e.preventDefault()} className="space-y-5">
+						<form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
 							<div className="grid gap-5 sm:grid-cols-2">
 								<div>
 									<label className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.18em] text-[#5a3d56]">Full Name</label>
-									<input type="text" placeholder="Names" className="w-full rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
+									<input name="name" type="text" required placeholder="Names" className="w-full rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
 								</div>
 								<div>
 									<label className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.18em] text-[#5a3d56]">Email Address</label>
-									<input type="email" placeholder="@example.com" className="w-full rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
+									<input name="email" type="email" required placeholder="@example.com" className="w-full rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
 								</div>
 							</div>
 
 							<div className="grid gap-5 sm:grid-cols-2">
 								<div>
 									<label className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.18em] text-[#5a3d56]">Organization</label>
-									<input type="text" placeholder="Company Name" className="w-full rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
+									<input name="organization" type="text" placeholder="Company Name" className="w-full rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
 								</div>
 								<div>
 									<label className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.18em] text-[#5a3d56]">Phone</label>
-									<input type="tel" placeholder="+250 ..." className="w-full rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
+									<input name="phone" type="tel" placeholder="+250 ..." className="w-full rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
 								</div>
 							</div>
 
 							<div>
 								<label className="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.18em] text-[#5a3d56]">Your Message</label>
-								<textarea rows={5} placeholder="How can we help you?" className="w-full resize-none rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
+								<textarea name="message" rows={5} required placeholder="How can we help you?" className="w-full resize-none rounded-lg border border-[#d4b8d0] bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#92278f] focus:ring-1 focus:ring-[#92278f]" />
 							</div>
 
 							<label className="flex items-start gap-3 cursor-pointer">
-								<input type="checkbox" className="mt-0.5 h-4 w-4 accent-[#92278f]" />
+								<input
+									type="checkbox"
+									checked={consent}
+									onChange={(e) => setConsent(e.target.checked)}
+									className="mt-0.5 h-4 w-4 accent-[#92278f]"
+								/>
 								<span className="text-xs leading-relaxed text-[#5a3d56]">
 									I consent to the processing of my personal data in accordance with the{' '}
 									<a href="#gdpr" className="underline text-[#92278f]">GDPR Notice</a> and{' '}
 									<a href="#privacy" className="underline text-[#92278f]">Privacy Policy</a>.
-
 								</span>
 							</label>
 
+							{formStatus === 'success' && (
+								<p className="text-xs font-medium text-green-700">Your message has been sent! We'll get back to you soon.</p>
+							)}
+							{formStatus === 'error' && (
+								<p className="text-xs font-medium text-red-600">Something went wrong. Please try again.</p>
+							)}
+
 							<button
 								type="submit"
-								className="rounded-md bg-[#92278f] px-7 py-3 text-xs font-bold uppercase tracking-[0.16em] text-white shadow transition-colors hover:bg-[#6b1a6a]"
+								disabled={!consent || formStatus === 'sending'}
+								className="rounded-md bg-[#92278f] px-7 py-3 text-xs font-bold uppercase tracking-[0.16em] text-white shadow transition-colors hover:bg-[#6b1a6a] disabled:cursor-not-allowed disabled:opacity-50"
 							>
-								Send Message
+								{formStatus === 'sending' ? 'Sending…' : 'Send Message'}
 							</button>
 						</form>
 					</div>

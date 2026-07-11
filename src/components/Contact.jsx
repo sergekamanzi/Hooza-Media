@@ -1,3 +1,120 @@
+import { useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
+
+const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+function ContactForm() {
+	const formRef = useRef(null)
+	const [status, setStatus] = useState('idle') // idle | sending | success | error
+
+	const handleSubmit = async (e) => {
+		e.preventDefault()
+		setStatus('sending')
+		try {
+			await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY })
+			setStatus('success')
+			formRef.current.reset()
+		} catch {
+			setStatus('error')
+		}
+	}
+
+	return (
+		<section className="bg-white px-4 py-14 sm:px-6 lg:px-10 lg:py-20">
+			<div className="mx-auto max-w-2xl">
+				<p className="text-sm font-semibold uppercase tracking-[0.18em] text-(--hooza-primary)">Get in touch</p>
+				<h2 className="mt-2 text-3xl font-bold tracking-tight text-(--hooza-text) sm:text-4xl">Contact Us</h2>
+				<p className="mt-4 text-base leading-7 text-[#6f5a67]">
+					Have a question or want to work with us? Fill out the form and we'll get back to you.
+				</p>
+
+				<form ref={formRef} onSubmit={handleSubmit} className="mt-10 space-y-6">
+					<div className="grid gap-6 sm:grid-cols-2">
+						<div>
+							<label htmlFor="name" className="block text-sm font-medium text-(--hooza-text)">Full Name</label>
+							<input
+								id="name"
+								name="name"
+								type="text"
+								required
+								placeholder="Jane Doe"
+								className="mt-1.5 w-full rounded-xl border border-[#e0cedd] bg-[#fdf8fc] px-4 py-3 text-sm text-(--hooza-text) outline-none transition focus:border-(--hooza-primary) focus:ring-2 focus:ring-(--hooza-primary)/20"
+							/>
+						</div>
+						<div>
+							<label htmlFor="email" className="block text-sm font-medium text-(--hooza-text)">Email</label>
+							<input
+								id="email"
+								name="email"
+								type="email"
+								required
+								placeholder="jane@example.com"
+								className="mt-1.5 w-full rounded-xl border border-[#e0cedd] bg-[#fdf8fc] px-4 py-3 text-sm text-(--hooza-text) outline-none transition focus:border-(--hooza-primary) focus:ring-2 focus:ring-(--hooza-primary)/20"
+							/>
+						</div>
+					</div>
+
+					<div className="grid gap-6 sm:grid-cols-2">
+						<div>
+							<label htmlFor="organization" className="block text-sm font-medium text-(--hooza-text)">Organization</label>
+							<input
+								id="organization"
+								name="organization"
+								type="text"
+								placeholder="Your company (optional)"
+								className="mt-1.5 w-full rounded-xl border border-[#e0cedd] bg-[#fdf8fc] px-4 py-3 text-sm text-(--hooza-text) outline-none transition focus:border-(--hooza-primary) focus:ring-2 focus:ring-(--hooza-primary)/20"
+							/>
+						</div>
+						<div>
+							<label htmlFor="phone" className="block text-sm font-medium text-(--hooza-text)">Phone Number</label>
+							<input
+								id="phone"
+								name="phone"
+								type="tel"
+								placeholder="+1 234 567 890 (optional)"
+								className="mt-1.5 w-full rounded-xl border border-[#e0cedd] bg-[#fdf8fc] px-4 py-3 text-sm text-(--hooza-text) outline-none transition focus:border-(--hooza-primary) focus:ring-2 focus:ring-(--hooza-primary)/20"
+							/>
+						</div>
+					</div>
+
+					<div>
+						<label htmlFor="message" className="block text-sm font-medium text-(--hooza-text)">Message</label>
+						<textarea
+							id="message"
+							name="message"
+							rows={5}
+							required
+							placeholder="Write your message here..."
+							className="mt-1.5 w-full resize-none rounded-xl border border-[#e0cedd] bg-[#fdf8fc] px-4 py-3 text-sm text-(--hooza-text) outline-none transition focus:border-(--hooza-primary) focus:ring-2 focus:ring-(--hooza-primary)/20"
+						/>
+					</div>
+
+					<button
+						type="submit"
+						disabled={status === 'sending'}
+						className="inline-flex w-full items-center justify-center rounded-xl bg-(--hooza-primary) px-8 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+					>
+						{status === 'sending' ? 'Sending…' : 'Send Message'}
+					</button>
+
+					{status === 'success' && (
+						<p className="text-sm font-medium text-green-600">
+							Your message has been sent! We'll get back to you soon.
+						</p>
+					)}
+					{status === 'error' && (
+						<p className="text-sm font-medium text-red-600">
+							Something went wrong. Please try again or email us directly.
+						</p>
+					)}
+				</form>
+			</div>
+		</section>
+	)
+}
+
 const navigationLinks = [
 	{ label: 'Home', href: '#home' },
 	{ label: 'What We Do', href: '#what-we-do' },
@@ -34,6 +151,8 @@ function SocialIcon({ children, label, href = '#' }) {
 
 export default function Contact() {
 	return (
+		<>
+		<ContactForm />
 		<footer id="contact" className="bg-[#f2deef] px-4 py-12 sm:px-6 sm:py-16 lg:px-10 lg:py-20">
 			<div className="mx-auto max-w-7xl px-0 py-0 sm:px-0 sm:py-0 lg:px-0 lg:py-0">
 				<div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
@@ -127,5 +246,6 @@ export default function Contact() {
 				</div>
 			</div>
 		</footer>
+		</>
 	)
 }
