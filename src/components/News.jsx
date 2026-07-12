@@ -1,34 +1,3 @@
-import { useEffect, useRef, useState } from 'react'
-
-function useCountUp(target, duration = 2000) {
-  const [count, setCount] = useState(0)
-  const ref = useRef(null)
-  const observerRef = useRef(null)
-
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return
-        observerRef.current.disconnect()
-        const start = performance.now()
-        const step = (now) => {
-          const progress = Math.min((now - start) / duration, 1)
-          const eased = 1 - Math.pow(1 - progress, 3)
-          setCount(Math.floor(eased * target))
-          if (progress < 1) requestAnimationFrame(step)
-          else setCount(target)
-        }
-        requestAnimationFrame(step)
-      },
-      { threshold: 0.3 }
-    )
-    if (ref.current) observerRef.current.observe(ref.current)
-    return () => observerRef.current?.disconnect()
-  }, [target, duration])
-
-  return { count, ref }
-}
-
 const featuredArticle = {
   category: 'INNOVATION',
   date: 'March 17, 2018',
@@ -144,8 +113,6 @@ function ArticleCard({ article }) {
 }
 
 export default function News() {
-  const { count, ref: countRef } = useCountUp(5000)
-
   return (
     <section id="news" className="bg-white py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
@@ -164,21 +131,6 @@ export default function News() {
             <p className="mt-4 text-sm leading-relaxed text-gray-500 sm:text-base">
               Pioneering the narrative of digital transformation across Africa. Hooza Group delivers essential updates on the convergence of media, mobile technology, and institutional growth.
             </p>
-          </div>
-          {/* Right – social proof */}
-          <div className="flex items-center gap-3 lg:mt-2 lg:shrink-0">
-            <div className="flex -space-x-2">
-              {['RQ', 'AV'].map((initials) => (
-                <div
-                  key={initials}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white text-xs font-bold text-white"
-                  style={{ backgroundColor: '#92278f' }}
-                >
-                  {initials}
-                </div>
-              ))}
-            </div>
-            <span ref={countRef} className="text-sm font-medium text-gray-600">Join {count.toLocaleString()}+ industry leaders</span>
           </div>
         </div>
 
