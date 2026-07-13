@@ -29,6 +29,7 @@ const partners = [
   { name: 'ML CORPORATE SERVICES', country: 'Rwanda', sector: 'Advisory' },
   { name: 'OPPO', country: 'China', sector: 'Advisory' },
   { name: 'ORGANISATION DE LA PRESSE FRANCOPHONE AU RWANDA (OPFR)', country: 'Rwanda', sector: 'Governance' },
+  { name: 'RADIO NETHERLANDS TRAINING CENTRE', country: 'Netherlands', sector: 'Media Development' },
   { name: 'RWANDA BROADCASTING AGENCY', country: 'Rwanda', sector: 'Broadcasting' },
   { name: 'RWANDA MEDIA COMMISSION', country: 'Rwanda', sector: 'Media Regulation' },
   { name: 'RWANDA NATIONAL ELECTORAL COMMISSION', country: 'Rwanda', sector: 'Public Awareness' },
