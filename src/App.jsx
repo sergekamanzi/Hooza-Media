@@ -6,6 +6,7 @@ import WhereWeOperate from './components/WhereWeOperate'
 import Contact from './components/Contact'
 import News from './components/News'
 import Careers from './components/careers'
+import Partners from './components/Partners'
 
 function App() {
   const [currentPage, setCurrentPage] = useState(window.location.hash || '#home')
@@ -23,6 +24,7 @@ function App() {
       {currentPage === '#what-we-do' && <WhatWeDo />}
       {currentPage === '#where-we-operate' && <WhereWeOperate />}
       {currentPage === '#news-press' && <News />}
+      {currentPage === '#partners-references' && <Partners />}
       {currentPage === '#careers' && <Careers />}
       <Contact />
     </div>

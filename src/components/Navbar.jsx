@@ -10,6 +10,7 @@ const navItems = [
 	{ label: 'What We Do', href: '#what-we-do' },
 	{ label: 'Where We Operate', href: '#where-we-operate' },
 	{ label: 'News & Press', href: '#news-press' },
+	{ label: 'Partners & References', href: '#partners-references' },
 	{ label: 'Careers', href: '#careers' },
 ]
 
