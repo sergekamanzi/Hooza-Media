@@ -15,25 +15,28 @@ const industries = [
 ]
 
 const partners = [
-  { name: 'FORBES AFRICA', country: 'South Africa', sector: 'Publishing' },
-  { name: 'INTERNATIONAL TELECOMMUNICATION UNION', country: 'Switzerland', sector: 'Publishing' },
-  { name: 'UNITED NATIONS RADIO', country: 'USA', sector: 'Broadcasting' },
-  { name: 'UNITED STATES AGENCY FOR GLOBAL MEDIA', country: 'USA', sector: 'Broadcasting' },
-  { name: 'DEUTSCHE WELLE', country: 'Germany', sector: 'Broadcasting' },
-  { name: 'TF1', country: 'France', sector: 'Broadcasting' },
-  { name: 'FRANCE MÉDIAS MONDE', country: 'France', sector: 'Broadcasting' },
-  { name: 'CFI', country: 'France', sector: 'Media Development' },
-  { name: 'ERICSSON', country: 'Sweden', sector: 'Technology' },
-  { name: 'KIRUSA INC', country: 'USA', sector: 'Technology' },
+  { name: 'AFRICAINE DE CONSEIL ET DE COMMUNICATION (ACC)', country: 'Senegal', sector: 'Public Relation, Media & Communication' },
+  { name: 'AGACIRO DEVELOPMENT FUND', country: 'Rwanda', sector: "Rwanda's Sovereign Wealth Fund" },
   { name: 'AIIB', country: 'China', sector: 'Finance' },
   { name: 'BDO EAST AFRICA', country: 'Rwanda', sector: 'Advisory' },
-  { name: 'RWANDA NATIONAL ELECTORAL COMMISSION', country: 'Rwanda', sector: 'Public Awareness' },
-  { name: 'AFRICAINE DE CONSEIL ET DE COMMUNICATION (ACC)', country: 'Senegal', sector: 'Public Relation, Media & Communication' },
-  { name: 'AGACIRO DEVELOPMENT FUND', country: 'Rwanda', sector: 'Advisory, Public Relation' },
-  { name: 'RWANDA MEDIA COMMISSION', country: 'Rwanda', sector: 'Media Regulation' },
+  { name: 'CFI', country: 'France', sector: 'Media Development' },
+  { name: 'DEUTSCHE WELLE', country: 'Germany', sector: 'Broadcasting' },
+  { name: 'ERICSSON', country: 'Sweden', sector: 'Technology' },
+  { name: 'FORBES AFRICA', country: 'South Africa', sector: 'Publishing' },
+  { name: 'FRANCE MÉDIAS MONDE', country: 'France', sector: 'Broadcasting' },
+  { name: 'INTERNATIONAL TELECOMMUNICATION UNION', country: 'Switzerland', sector: 'Publishing' },
+  { name: 'KIRUSA INC', country: 'USA', sector: 'Technology' },
+  { name: 'ML CORPORATE SERVICES', country: 'Rwanda', sector: 'Advisory' },
+  { name: 'OPPO', country: 'China', sector: 'Advisory' },
   { name: 'ORGANISATION DE LA PRESSE FRANCOPHONE AU RWANDA (OPFR)', country: 'Rwanda', sector: 'Governance' },
-  { name: 'THE TONY ELUMELU FOUNDATION', country: 'Nigeria', sector: 'Start-up Incubation & Accelerator' },
+  { name: 'RWANDA BROADCASTING AGENCY', country: 'Rwanda', sector: 'Broadcasting' },
+  { name: 'RWANDA MEDIA COMMISSION', country: 'Rwanda', sector: 'Media Regulation' },
+  { name: 'RWANDA NATIONAL ELECTORAL COMMISSION', country: 'Rwanda', sector: 'Public Awareness' },
   { name: 'SONY MUSIC / THE ORCHARD', country: 'USA', sector: 'Publishing & Global Distribution' },
+  { name: 'TF1', country: 'France', sector: 'Broadcasting' },
+  { name: 'THE TONY ELUMELU FOUNDATION', country: 'Nigeria', sector: 'Start-up Incubation & Accelerator' },
+  { name: 'UNITED NATIONS RADIO', country: 'USA', sector: 'Broadcasting' },
+  { name: 'UNITED STATES AGENCY FOR GLOBAL MEDIA', country: 'USA', sector: 'Broadcasting' },
   { name: 'VIAMO', country: 'Mauritius', sector: 'Technology' },
 ]
 
@@ -59,7 +62,7 @@ export default function Partners() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 divide-y divide-x-0 divide-gray-200 border border-gray-200 sm:grid-cols-2 lg:grid-cols-4 sm:divide-x">
+        <div className="grid grid-cols-1 divide-y divide-x-0 divide-gray-200 sm:grid-cols-2 lg:grid-cols-4 sm:divide-x">
           {partners.map((partner, i) => (
             <div
               key={i}
