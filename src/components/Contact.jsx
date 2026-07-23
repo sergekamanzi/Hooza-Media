@@ -4,6 +4,7 @@ const navigationLinks = [
 	{ label: 'Where We Operate', href: '#where-we-operate' },
 	{ label: 'Careers', href: '#careers' },
 	{ label: 'News & Press', href: '#news-press' },
+	{ label: 'Partners & References', href: '#partners-references' },
 ]
 
 const resourceLinks = [

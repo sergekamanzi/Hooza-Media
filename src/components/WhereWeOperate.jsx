@@ -237,8 +237,8 @@ export default function WhereWeOperate() {
           </p>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 sm:gap-8">
+        {/* Top 3 Cards Grid */}
+        <div className="grid gap-6 sm:grid-cols-3 sm:gap-8">
           {[
             {
               tag: 'CENTRAL HUB',
@@ -257,12 +257,6 @@ export default function WhereWeOperate() {
               image: '/dar.jpeg',
               city: 'Dar es Salaam, Tanzania',
               description: 'Eastern Africa hub driving Swahili-language, Portuguese and English media outreach and last-mile connectivity across the Great Lakes region and Austral Africa.',
-            },
-            {
-              tag: 'EU CLUSTER',
-              image: '/paris.jpeg',
-              city: 'Paris, France',
-              description: 'Our strategic advisory boutique consulting firm for business intelligence and investment support.',
             },
           ].map((hub) => (
             <div
@@ -292,6 +286,61 @@ export default function WhereWeOperate() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Arrow with text */}
+        <div className="my-10 flex flex-col items-center sm:my-14">
+          <div className="flex flex-col items-center">
+            <svg
+              className="mb-3 h-8 w-8 animate-bounce"
+              style={{ color: '#92278f' }}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
+            </svg>
+            <p className="text-center text-sm font-semibold text-gray-700 sm:text-base">
+              Click here to know more about <span style={{ color: '#92278f' }}>hooza&partners</span>
+            </p>
+          </div>
+        </div>
+
+        {/* EU Cluster Card */}
+        <div className="mx-auto max-w-2xl">
+          <a
+            href="https://hoozapartners.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md"
+          >
+            {/* Image with tag */}
+            <div className="relative h-48 w-full overflow-hidden sm:h-52 lg:h-56">
+              <img
+                src="/paris.jpeg"
+                alt="Paris, France"
+                className="h-full w-full object-cover"
+              />
+              {/* Tag pill */}
+              <span
+                className="absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider text-white"
+                style={{ background: '#92278f' }}
+              >
+                EU CLUSTER
+              </span>
+            </div>
+
+            {/* Text */}
+            <div className="p-6 sm:p-7">
+              <h3 className="mb-2 text-xl font-bold text-gray-900 sm:text-2xl">Paris, France</h3>
+              <p className="text-sm leading-relaxed text-gray-500 sm:text-base">Our strategic advisory boutique consulting firm for business intelligence and investment support.</p>
+            </div>
+          </a>
         </div>
       </div>
 
